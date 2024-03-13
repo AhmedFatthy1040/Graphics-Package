@@ -16,13 +16,19 @@ namespace GraphicsPackage;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private string x1 = "";
     public MainWindow()
     {
         InitializeComponent();
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void X1_TextChanged(object sender, TextChangedEventArgs e)
     {
+        x1 = X1.Text;
+    }
 
+    private void DrawLineDDA_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Text entered: " + x1);
     }
 }
