@@ -6,14 +6,19 @@
         xmlns:local="clr-namespace:GraphicsPackage"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid RenderTransformOrigin="0.501,0.481">
+    <Grid RenderTransformOrigin="0.501,0.481" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="X1" HorizontalAlignment="Left" Margin="108,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="X1_TextChanged"/>
-        <Button x:Name="DrawLineDDA" Content="Button" HorizontalAlignment="Left" Margin="140,132,0,0" VerticalAlignment="Top" Click="DrawLineDDA_Click"/>
+        <TextBox x:Name="X1" HorizontalAlignment="Left" Margin="175,36,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="37" TextChanged="X1_TextChanged"/>
+        <Button x:Name="DrawLineDDA" Content="DrawLine DDA" HorizontalAlignment="Left" Margin="79,113,0,0" VerticalAlignment="Top" Click="DrawLineDDA_Click" Width="133"/>
+        <TextBox x:Name="Y1" HorizontalAlignment="Left" Margin="175,65,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="37" TextChanged="Y1_TextChanged"/>
+        <Label Content="Point 1:" HorizontalAlignment="Left" Margin="79,45,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
+        <Label Content="X" HorizontalAlignment="Left" Margin="140,32,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="140,60,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
+        <Button x:Name="DrawLine_Bresenham" Content="DrawLine Bresenham" HorizontalAlignment="Left" Margin="79,156,0,0" VerticalAlignment="Top" Width="133" Click="DrawLine_Bresenham_Click"/>
 
     </Grid>
 </Window>
