@@ -6,19 +6,62 @@
         xmlns:local="clr-namespace:GraphicsPackage"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid RenderTransformOrigin="0.501,0.481" Background="Black">
+    <Grid Background="Black">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="X1" HorizontalAlignment="Left" Margin="175,36,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="37" TextChanged="X1_TextChanged"/>
-        <Button x:Name="DrawLineDDA" Content="DrawLine DDA" HorizontalAlignment="Left" Margin="79,113,0,0" VerticalAlignment="Top" Click="DrawLineDDA_Click" Width="133"/>
-        <TextBox x:Name="Y1" HorizontalAlignment="Left" Margin="175,65,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="37" TextChanged="Y1_TextChanged"/>
-        <Label Content="Point 1:" HorizontalAlignment="Left" Margin="79,45,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
-        <Label Content="X" HorizontalAlignment="Left" Margin="140,32,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
-        <Label Content="Y" HorizontalAlignment="Left" Margin="140,60,0,0" VerticalAlignment="Top" Background="Black" Foreground="White"/>
-        <Button x:Name="DrawLine_Bresenham" Content="DrawLine Bresenham" HorizontalAlignment="Left" Margin="79,156,0,0" VerticalAlignment="Top" Width="133" Click="DrawLine_Bresenham_Click"/>
 
+        <!-- Control Panel -->
+        <Border Background="#222222" Grid.Column="0">
+            <StackPanel Margin="10">
+                <TextBlock Text="Graphics Package" FontSize="18" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                
+                <!-- Line Drawing -->
+                <GroupBox Header="Line Drawing" Foreground="White" Margin="0,0,0,10">
+                    <StackPanel Margin="5">
+                        <!-- Point 1 -->
+                        <StackPanel Orientation="Horizontal" Margin="0,5">
+                            <Label Content="Point 1:" Width="60" Foreground="White"/>
+                            <Label Content="X:" Width="20" Foreground="White"/>
+                            <TextBox x:Name="X1" Width="50" Text="100" TextChanged="X1_TextChanged"/>
+                            <Label Content="Y:" Width="20" Foreground="White" Margin="5,0,0,0"/>
+                            <TextBox x:Name="Y1" Width="50" Text="100" TextChanged="Y1_TextChanged"/>
+                        </StackPanel>
+                        
+                        <!-- Point 2 -->
+                        <StackPanel Orientation="Horizontal" Margin="0,5">
+                            <Label Content="Point 2:" Width="60" Foreground="White"/>
+                            <Label Content="X:" Width="20" Foreground="White"/>
+                            <TextBox x:Name="X2" Width="50" Text="300" TextChanged="X2_TextChanged"/>
+                            <Label Content="Y:" Width="20" Foreground="White" Margin="5,0,0,0"/>
+                            <TextBox x:Name="Y2" Width="50" Text="200" TextChanged="Y2_TextChanged"/>
+                        </StackPanel>
+                        
+                        <!-- Line Color -->
+                        <StackPanel Orientation="Horizontal" Margin="0,5">
+                            <Label Content="Color:" Width="60" Foreground="White"/>
+                            <ComboBox x:Name="LineColor" Width="150" SelectedIndex="0" SelectionChanged="LineColor_SelectionChanged">
+                                <ComboBoxItem Content="White" Tag="#FFFFFF"/>
+                                <ComboBoxItem Content="Red" Tag="#FF0000"/>
+                                <ComboBoxItem Content="Green" Tag="#00FF00"/>
+                                <ComboBoxItem Content="Blue" Tag="#0000FF"/>
+                                <ComboBoxItem Content="Yellow" Tag="#FFFF00"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <!-- Buttons -->
+                        <Button x:Name="DrawLineDDA" Content="Draw Line (DDA)" Margin="0,10,0,0" Padding="5" Click="DrawLineDDA_Click"/>
+                        <Button x:Name="DrawLine_Bresenham" Content="Draw Line (Bresenham)" Margin="0,5,0,0" Padding="5" Click="DrawLine_Bresenham_Click"/>
+                        <Button x:Name="ClearCanvas" Content="Clear Canvas" Margin="0,5,0,0" Padding="5" Click="ClearCanvas_Click"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </Border>
+
+        <!-- Drawing Canvas -->
+        <Border Grid.Column="1" BorderBrush="#333" BorderThickness="1">
+            <Canvas x:Name="DrawingCanvas" Background="Black"/>
+        </Border>
     </Grid>
 </Window>
